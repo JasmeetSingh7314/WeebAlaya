@@ -1,6 +1,8 @@
 import com.mongodb.client.*;
 import org.bson.Document;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -14,6 +16,7 @@ public class Actual {
         ArrayList<Character> list3=new ArrayList<Character>();
         ArrayList<String> list4=new ArrayList<String>();
         ArrayList<String> list5=new ArrayList<String>();
+        ArrayList<String> list6=new ArrayList<String>();
 
 
 
@@ -122,10 +125,151 @@ public class Actual {
         if(title_1.equalsIgnoreCase(title_1.toLowerCase()) && title_1.equalsIgnoreCase(title_1.toUpperCase())){
             FindIterable<Document> result=collection.find(new Document("title",final_1));
             for(Document document:result){
+                System.out.println("What do you want to retrieve?:");
+                String choice=scanner.nextLine();
+                switch(choice){
+                    case ("synonyms"):{
+                        list6=document.get("synonyms",ArrayList.class);
+                        System.out.println(list6);
+                        for(int i=0;i<list6.size();i++){
+                            System.out.println(i);
+                        }
+                    }break;
+                    case("sources"):{
+                        list6=document.get("sources",ArrayList.class);
+                        System.out.println(list6);
+                        for(int i=0;i<list6.size();i++){
+                            System.out.println(i);
+                        }
+                    }break;
+                    case("title"):{
+                        String title=document.get("title",String.class);
+                        System.out.println(title);
+                    }break;
+                    case("type:"):{
+                        String type=document.get("type",String.class);
+                        System.out.println(type);
+                    }break;
+                    case("episodes"):{
+                        Integer eps=document.get("episodes",Integer.class);
+                        System.out.println(eps);
+                    }break;
+                    case("status"):{
+                        String stat=document.get("status",String.class);
+                        System.out.println(stat);
+                    }break;
+                    case("animeSeason"):{
+                        Document array=document.get("animeSeason", Document.class);
+                        String season=array.get("season",String.class);
+                        System.out.println(season);
+                        Integer year=array.get("year",Integer.class);
+                        System.out.println(year);
+                    }break;
+                    case("picture"):{
+                        String link=document.get("picture",String.class);
+                        System.out.println(link);
+                    }break;
+                    case("relations"):{
+                        list6=document.get("relations",ArrayList.class);
+                        for(String link :list6){
+                            System.out.println(link);
+                        }
+                    }break;
+                    case("tags"):{
+                        list6=document.get("tags",ArrayList.class);
+                        for(String tag:list6){
+                            System.out.println(tag);
+                        }
+                    }
+
+                }
+                Boolean ch=true;
+                while(ch){
+                    System.out.println("Do you still want to retrieve info?(Y/N)");
+                    String choic=scanner.nextLine();
+                    if (choic.equals("y") || choic=="Y"){
+                        ch=true;
+                    }
+                    else if(choic.equals("n") || choic.equals("N")){
+                        ch=false;
+                        break;
+                    }
+                    System.out.println("What do you want to retrieve?:");
+                    String hmm=scanner.nextLine();
+                    switch(hmm){
+                        case ("synonyms"):{
+                            list6=document.get("synonyms",ArrayList.class);
+                            System.out.println(list6);
+                            for(int i=0;i<list6.size();i++){
+                                System.out.println(list6.get(i));
+                            }
+                        }break;
+                        case("sources"):{
+                            list6=document.get("sources",ArrayList.class);
+                            System.out.println(list6);
+                            for(int i=0;i<list6.size();i++){
+                                System.out.println(list6.get(i));
+                            }
+                        }break;
+                        case("title"):{
+                            String title=document.get("title",String.class);
+                            System.out.println(title);
+                        }break;
+                        case("type:"):{
+                            String type=document.get("type",String.class);
+                            System.out.println(type);
+                        }break;
+                        case("episodes"):{
+                            Integer eps=document.get("episodes",Integer.class);
+                            System.out.println(eps);
+                        }break;
+                        case("status"):{
+                            String stat=document.get("status",String.class);
+                            System.out.println(stat);
+                        }break;
+                        case("animeSeason"):{
+                            Document array=document.get("animeSeason", Document.class);
+                            String season=array.get("season",String.class);
+                            System.out.println(season);
+                            Integer year=array.get("year",Integer.class);
+                            System.out.println(year);
+                        }break;
+                        case("picture"):{
+                            String link=document.get("picture",String.class);
+                            System.out.println(link);
+                        }break;
+                        case("relations"):{
+                            list6=document.get("relations",ArrayList.class);
+                            for(String link :list6){
+                                System.out.println(link);
+                            }
+                        }break;
+                        case("tags"):{
+                            list6=document.get("tags",ArrayList.class);
+                            for(String tag:list6){
+                                System.out.println(tag);
+                            }
+                        }
+
+                    }
+
+                }
+
+
+
+
+                //String syn=doc.toString();
+
                 System.out.println(document.toJson());
             }
 
+
+
         }
+        //ACCESSOR
+
+
+
 
 
         ///RECOMMENDATION ALGO
