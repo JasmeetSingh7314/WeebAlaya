@@ -1,27 +1,18 @@
 {
-  "name": "weebalaya",
+  "name": "weeb",
   "version": "1.0.0",
-  "description": "��#\u0000 \u0000W\u0000e\u0000e\u0000b\u0000A\u0000l\u0000a\u0000y\u0000a\u0000\r\u0000 \u0000",
-  "main": "index.js",
+  "description": "",
+  "main": "app.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/FirstKenpachi/WeebAlaya.git"
-  },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/FirstKenpachi/WeebAlaya/issues"
-  },
-  "homepage": "https://github.com/FirstKenpachi/WeebAlaya#readme",
-  "devDependencies": {
-    "nodemon": "^2.0.15"
-  },
   "dependencies": {
-    "express": "^4.17.2"
+    "body-parser": "^1.20.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.0",
+    "nodemon": "^2.0.18"
   }
 }

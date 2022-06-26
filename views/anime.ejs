@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Anime Page</title>
+    <link rel="stylesheet" href="styles.css"
+    <!-- CSS only -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Koulen&family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark nav1" style="padding:1.2% 1% 1% 0.7%; ">
+    <div class="container-fluid">
+        <!-- FOR THE BRAND LOGO -->
+        <a class="navbar-brand head" href="" #>
+            <h1 class="e">W</h1>Alaya
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarcollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarcollapse">
+            <ul class="navbar nav  list">
+                <li class="nav-item " style="font-size: 2rem; font-family:'Koulen',cursive;color:#F2F2F2;">
+                    <button class="btn btn-sm pad"><a class="nav-link active item" aria-current="page"
+                            href="#" style="font-size: 1.2rem; font-weight:100;font-family:  'Koulen',cursive;color:#F2F2F2;">Latest updates</a></button>
+    
+                </li>
+                <li class="nav-item item">
+                    <button class="btn btn-sm pad"><a class="nav-link active item"  aria-current="page"
+                            href="#" style="font-size: 1.2rem; font-family:'Koulen',cursive;font-weight:100;color:#F2F2F2;">Explore</a></button>
+    
+    
+                </li>
+                <li class="nav-item" style="font-size: 2rem; font-family:'Koulen',cursive;color:#F2F2F2;">
+                    <button class="btn btn-sm pad"><a class="nav-link active item" href="/anime" style="font-size: 1.2rem; font-family:'Koulen',cursive;color:#F2F2F2;">Anime</a></button>
+                </li>
+                <li class="nav-item" style="font-size: 2rem; font-family:'Koulen',cursive;color:#F2F2F2;">
+                    <button class="btn btn-sm pad"><a class="nav-link active item" href="#" style="font-size: 1.2rem; font-family:'Koulen',cursive;color:#F2F2F2;">Manga</a></button>
+                </li1.2
+                <li class="nav-item" style="font-size: 2rem; font-family:'Koulen',cursive;color:#F2F2F2;">
+                    <button class="btn btn-sm pad less"><a class="nav-link active item" href="#" style="font-size: 1.2rem; font-family:'Koulen',cursive;color:#F2F2F2;">Community</a></button>
+                </li>
+                <li class="nav-item" style="font-size: 2rem; font-family:'Koulen',cursive;color:#F2F2F2;">
+                    <button class="btn btn-sm pad less"><a class="nav-link active item" href="#" style="font-size: 1.2rem; font-family:'Koulen',cursive;color:#F2F2F2;">Profile</a></button>
+                </li>
+    
+            </ul>
+            <div class="form  ms-auto mb-3">
+            
+                <form action="/anime" method="POST">
+                    <input type="text" name="query" placeholder="Enter name of anime:" class="form-control form-control-sm" style="display:inline-block;width:auto">
+                    <button type="submit" class="btn btn-md btn-warning bu  ">Search</button>
+            
+                </form>
+        </div>
+    </div>
+    
+    
+    </nav>
+    <div class="container-fluid lower ">
+        <div class="mid container-fluid  ">
+            <% if (list!=undefined){ %>
+             <div class="background-image lower" style="background-image: url(<%=list.images.jpg.image_url%>);"
+                <h1>hello</h1>
+             </div>
+            <%}else{%>
+                <div class="background-image lower" > <h1>hello</h1>
+                </div>
+            <% } %>
+
+            
+            <div class="content lower">
+
+            
+             <% if (list!=undefined){ %>
+               
+               <img src=<%= list.images.jpg.image_url %> class="image images">
+               
+               <div class="info ">
+                 <h1 class="title inner"><%= list.title %></h1>
+                 <hr >
+                 <div class="contents">
+                   <div class="inner">
+                      <h2><b>Episodes:</b>
+                         <%= list.episodes %>
+                       </h2>
+                    </div>
+                    <div class="inner">
+                        <h2><b>Score:</b>
+                         <%= list.score %>
+                        </h2>
+                    </div>
+                    <div class="inner">
+                        <h2><b>Popularity:</b>
+                            <%= list.popularity %>
+                        </h2>
+
+                    </div>
+                    <div class="inner">
+                        <h2><b>Status:</b>
+                            <%= list.status %>
+                        </h2>
+
+                    </div>
+                    <div  class="inner">
+                        <h6>
+                            <b><%= list.synopsis%></b>
+                        </h6>
+
+                    </div>
+                    
+                 </div> 
+              
+                </div>
+             <% } %>
+            </div>
+        
+         <br>
+
+        
+        </div>
+        
+    </div>
+   
+    <div class="container-fluid col  ">
+        <br>
+        <br>
+        <br>
+        <div>
+            <% if(list!=undefined){ %>
+                
+
+            <%}%>
+        </div>
+
+    
+    </div>
+    
+</body>
+</html>
